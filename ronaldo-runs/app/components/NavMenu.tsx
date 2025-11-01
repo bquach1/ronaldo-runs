@@ -4,7 +4,7 @@ import {
   NavigationMenuList,
   NavigationMenuLink,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
+} from "../../components/ui/navigation-menu";
 import Link from "next/link";
 
 export default function NavMenu() {
