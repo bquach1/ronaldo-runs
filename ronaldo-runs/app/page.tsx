@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
@@ -17,8 +18,6 @@ export default function Home() {
   const carouselPlugin = useRef(
     Autoplay({ delay: 3000, stopOnInteraction: true })
   );
-
-  console.log(carouselPlugin.current)
 
   return (
     <div className="flex min-h-screen font-sans bg-black">
@@ -51,9 +50,9 @@ export default function Home() {
                     set goals, and join a fitness community of runners and
                     gym-goers.
                   </p>
-                  <button className="mt-6 px-4 py-2 bg-blue-600 text-white rounded">
+                  <Button onClick={() => {}} className="mt-6 px-4 py-2 bg-blue-600 text-white cursor-pointer">
                     Get Started
-                  </button>
+                  </Button>
                   <div className="mt-4 text-sm text-center">
                     Already have an account?{" "}
                     <a href="#" className="text-blue-400 hover:underline">
@@ -70,9 +69,19 @@ export default function Home() {
               </Card>
             </CarouselItem>
             <CarouselItem>
-              <Card className="bg-gradient-to-b from-black via-gray-900 to-black border-none shadow-none">
-                <CardContent className="flex h-screen items-center justify-center text-white">
-                  <h1 className="text-6xl font-bold">Track Your Workouts</h1>
+              <Card className="bg-transparent border-none shadow-none">
+                <CardContent className="flex flex-col items-center justify-center text-white">
+                  <div className="relative w-[150px] h-[150px]">
+                    <Image
+                      src="/ronaldo_bench_presses.png"
+                      alt="Ronaldo Bench Presses"
+                      height={150}
+                      width={150}
+                      className="object-contain pointer-events-none"
+                      priority
+                    />
+                  </div>
+                  <h1 className="text-6xl font-bold mt-6">Track Your Workouts</h1>
                 </CardContent>
               </Card>
             </CarouselItem>
