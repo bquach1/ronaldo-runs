@@ -23,7 +23,7 @@ export default function Home() {
 
   return (
     <div className="flex min-h-screen font-sans bg-black">
-      <main className="flex min-h-screen w-full flex-col bg-black">
+      <main className="flex justify-center min-h-screen w-full flex-col bg-black">
         <NavMenu />
         <Carousel
           onMouseEnter={carouselPlugin.current.stop}
