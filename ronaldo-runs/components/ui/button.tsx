@@ -40,11 +40,13 @@ function Button({
   className,
   variant,
   size,
+  icon,
   asChild = false,
   ...props
 }: React.ComponentProps<"button"> &
   VariantProps<typeof buttonVariants> & {
     asChild?: boolean;
+    icon?: React.ReactNode;
   }) {
   const Comp = asChild ? Slot : "button";
 
@@ -53,7 +55,10 @@ function Button({
       data-slot="button"
       className={cn(buttonVariants({ variant, size, className }))}
       {...props}
-    />
+    >
+      {icon && <span className="icon size-4">{icon}</span>}
+      {props.children}
+    </Comp>
   );
 }
 
