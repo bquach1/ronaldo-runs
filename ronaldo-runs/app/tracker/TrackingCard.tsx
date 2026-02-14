@@ -1,17 +1,18 @@
 import { Card, CardHeader } from "@/components/ui/card";
-import { DatePicker } from "../components/DatePicker";
+import { DatePicker } from "./components/DatePicker";
 import { Field, FieldLabel } from "@/components/ui/field";
-import { WorkoutSelect } from "../components/WorkoutSelect";
+import { WorkoutSelect } from "./components/WorkoutSelect";
 import { useState } from "react";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 
 interface TrackingCardProps {
   setTrackingCardOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setWorkoutLogs: React.Dispatch<React.SetStateAction<object[]>>;
 }
 
 interface FormInfo {
-  date: Date | null;
+  date: Date | undefined;
   workoutType: string;
   exerciseText: string;
   notesText: string;
@@ -19,9 +20,10 @@ interface FormInfo {
 
 export default function TrackingCard({
   setTrackingCardOpen,
+  setWorkoutLogs,
 }: TrackingCardProps) {
   const [formInfo, setFormInfo] = useState<FormInfo>({
-    date: null,
+    date: undefined,
     workoutType: "",
     exerciseText: "",
     notesText: "",
@@ -64,14 +66,26 @@ export default function TrackingCard({
           }
         />
         <div className="flex gap-x-3">
-          <Button variant="primary" onClick={() => console.log(formInfo)}>
+          <Button
+            variant="primary"
+            onClick={() => {
+              setWorkoutLogs((prev) => [...prev, formInfo]);
+              setFormInfo({
+                date: undefined,
+                workoutType: "",
+                exerciseText: "",
+                notesText: "",
+              });
+              setTrackingCardOpen(false);
+            }}
+          >
             Save Workout
           </Button>
           <Button
             variant="outline"
             onClick={() => {
               setFormInfo({
-                date: null,
+                date: undefined,
                 workoutType: "",
                 exerciseText: "",
                 notesText: "",
