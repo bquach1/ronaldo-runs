@@ -1,4 +1,6 @@
 import { Card, CardHeader } from "@/components/ui/card";
+import { DatePicker } from "../components/DatePicker";
+import { Field, FieldLabel } from "@/components/ui/field";
 
 export default function TrackingCard() {
   return (
@@ -6,6 +8,12 @@ export default function TrackingCard() {
       <CardHeader className="text-xl text-white pt-3 font-semibold">
         Add New Workout
       </CardHeader>
+      <Field className="ml-6 w-full">
+        <FieldLabel htmlFor="checkout-7j9-card-name-43j">
+          Name on Card
+        </FieldLabel>
+        <DatePicker />
+      </Field>
     </Card>
   );
 }
