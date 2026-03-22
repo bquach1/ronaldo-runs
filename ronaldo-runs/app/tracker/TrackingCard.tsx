@@ -5,24 +5,18 @@ import { WorkoutSelect } from "./components/WorkoutSelect";
 import { useState } from "react";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import type { WorkoutInfo } from "@/types/WorkoutInfo";
 
 interface TrackingCardProps {
   setTrackingCardOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  setWorkoutLogs: React.Dispatch<React.SetStateAction<object[]>>;
-}
-
-interface FormInfo {
-  date: Date | undefined;
-  workoutType: string;
-  exerciseText: string;
-  notesText: string;
+  setWorkoutLogs: React.Dispatch<React.SetStateAction<WorkoutInfo[]>>;
 }
 
 export default function TrackingCard({
   setTrackingCardOpen,
   setWorkoutLogs,
 }: TrackingCardProps) {
-  const [formInfo, setFormInfo] = useState<FormInfo>({
+  const [formInfo, setFormInfo] = useState<WorkoutInfo>({
     date: undefined,
     workoutType: "",
     exerciseText: "",

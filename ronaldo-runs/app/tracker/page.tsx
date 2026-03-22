@@ -5,11 +5,12 @@ import { PlusIcon } from "lucide-react";
 import NavMenu from "../components/NavMenu";
 import { useState } from "react";
 import TrackingCard from "./TrackingCard";
-import WorkoutLog from "./components/WorkoutLog";
+import type { WorkoutInfo } from "@/types/WorkoutInfo";
+import WorkoutContainer from "./components/WorkoutContainer";
 
 export default function TrackerPage() {
   const [trackingCardOpen, setTrackingCardOpen] = useState(false);
-  const [workoutLogs, setWorkoutLogs] = useState<object[]>([]);
+  const [workoutLogs, setWorkoutLogs] = useState<WorkoutInfo[]>([]);
 
   return (
     <div className="flex flex-col h-screen font-sans bg-black">
@@ -32,7 +33,7 @@ export default function TrackerPage() {
           />
         )}
         <div className="text-2xl font-bold w-5/6 mx-auto">Recent Workouts</div>
-        <WorkoutLog workoutLogs={workoutLogs} />
+        <WorkoutContainer workoutLogs={workoutLogs} />
       </div>
     </div>
   );
